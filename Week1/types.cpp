@@ -24,9 +24,7 @@ int main()
                                    // которое может храниться в unsigned long
     std::cout << _longFirst << std::endl;
     // можем убедиться с помощью специального синтаксиса
-    std::cout << (std::numeric_limits<unsigned long>::max() ==
-                  (unsigned long)(-1))
-              << std::endl;
+    std::cout << (std::numeric_limits<unsigned long>::max() == (unsigned long)(-1)) << std::endl;
 
     size_t _size_t; // специальный беззнаковый целочисленный тип для индексов
     std::cout << sizeof(size_t) << std::endl;
@@ -68,7 +66,7 @@ int main()
     std::cout << _string.front() << " " << _string.back() << std::endl;
 
     // 1.3.2 Vector
-    std::vector<int> vec{1, 2, 3}; // Init list, since C++11
+    std::vector<int> vec {1, 2, 3}; // Init list, since C++11
     std::cout << vec[2] << vec.at(2) << std::endl;
     vec.push_back(4); // 1, 2, 3, 4
     vec.pop_back();   // 1, 2, 3
@@ -98,7 +96,7 @@ int main()
     // 1.4 C-style array
     int _intMass = 5;
     int mass[10];
-    std::cout << mass[-1] << std::endl; // UB, but legal
+    std::cout << mass[-1] << std::endl; // UB
 
     // 1.4.1 Array (also compound type)
     std::array<int, 5> _array{1, 2, 3, 4, 5};
@@ -107,8 +105,18 @@ int main()
     std::cout << _array.size() << std::endl;
 
     // 1.5 Literals and literal suffixes
+    // 5(int), 0.2(double)
+    // 'A' (char)
+    // "abc" (const char*)
 
-    // Extra cash, initialization methods according std::string
+    unsigned _intLit = 5u;
+    float _floatLit = 0.2f;
+    int _int16Num = 0xff; // 16 ричная СС
+    int _int8Num = 0123; // 8 ричная СС
+    int _int8num = 0b101;
+
+
+    // Extra cash, initialization methods, example with std::string
     // std::string _stringInit = "abc";
     // std::string _stringInit {"abc"};
     // std::string _stringInit("abc");
