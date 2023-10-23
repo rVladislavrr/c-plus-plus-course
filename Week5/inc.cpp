@@ -104,7 +104,7 @@ public:
         std::cout << "Bird" << std::endl;
     }
 
-    // C++ 11
+    // C++ 11    // C++ 11: override, final
     virtual void Voice() const override final
     {
         std::cout << "Chirik" << std::endl;
