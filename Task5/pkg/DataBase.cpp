@@ -18,20 +18,21 @@ void DataBase::Print() const
     {
         for (const auto& iterSet : iter.second)
         {
-            std::cout << iter.first.Getstr() << " " << iterSet << std::endl;
+            std::cout << iter.first << " " << iterSet << std::endl;
         }
     }
 }
 
 void DataBase::DeleteEvent(const Date &date, const std::string &event)
 {
-    if ((m_container.find(date) == m_container.end()) ||
-        (m_container[date].find(event) == m_container[date].end() )){
-        std::cout << "Event not found" << std::endl;
-        return;
+    if (m_container.contains(date)
+     && m_container[date].contains(event)){
+        m_container[date].erase(event);
+        std::cout << "Deleted successfully" << std::endl;
     }
     m_container[date].erase(event);
     std::cout << "Deleted successfully" << std::endl;
+    std::cout << "Event not found" << std::endl;
 }
 
 void DataBase::DeleteDate(const Date &date)

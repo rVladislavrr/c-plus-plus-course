@@ -13,16 +13,6 @@ Date chekDate(std::istringstream &is)
 
     if (!(dateStream >> year >> dash >> month >> dash >> day) || (dateStream >> dash))
         throw std::logic_error("Wrong date format: " + date);
-    else
-    {
-        if (month < 1 || month > 12) {
-            throw std::logic_error("Month value is invalid: " +
-                                   std::to_string(month));
-        } else if (day < 1 || day > 31) {
-            throw std::logic_error("Day value is invalid: " +
-                                   std::to_string(day));
-        }
-    }
     return {year, month, day};
 }
 
@@ -85,13 +75,13 @@ int main() {
         catch (const std::runtime_error& e)
         {
             std::cout << e.what() << std::endl;
-            //return 1;
+            break;
         }
         catch (const std::logic_error& e)
         {
             std::cout << e.what() << std::endl;
-            //return 2;
+            break;
         }
     }
-    //return 0;
+    return 0;
 }
