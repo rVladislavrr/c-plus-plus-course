@@ -37,7 +37,13 @@ void chekComm(std::istringstream &is , DataBase& db)
         else if (comm == "Find")
         {
             Date date = chekDate(is);
-            db.Find(date);
+            const auto sett = db.Find(date);
+
+            for(const auto& event : sett)
+            {
+                std::cout << event << std::endl;
+            }
+
         }
         else if (comm == "Del")
         {

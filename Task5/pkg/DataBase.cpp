@@ -25,8 +25,8 @@ void DataBase::Print() const
 
 void DataBase::DeleteEvent(const Date &date, const std::string &event)
 {
-    if (m_container.contains(date)
-     && m_container[date].contains(event)){
+    if (m_container.find(date) != m_container.end()
+     && m_container[date].find(event) != m_container[date].end() ){
         m_container[date].erase(event);
         std::cout << "Deleted successfully" << std::endl;
     }
@@ -50,14 +50,11 @@ void DataBase::DeleteDate(const Date &date)
 
 }
 
-void DataBase::Find(const Date &date) const
+std::set <std::string> DataBase::Find(const Date &date) const
 {
     const auto it = m_container.find(date);
     if (it != m_container.end())
     {
-        for (const auto &iterSet: it->second)
-        {
-            std::cout << iterSet << std::endl;
-        }
+        return it->second;
     }
 }

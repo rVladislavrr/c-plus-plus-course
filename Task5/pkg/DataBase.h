@@ -17,7 +17,7 @@ public:
     void DeleteEvent(const Date& date, const std::string& event);
     void DeleteDate(const Date& date);
     void Print() const;
-    void Find(const Date& date) const;
+    std::set <std::string> Find(const Date& date) const;
 private:
     std::map < Date, std::set <std::string> > m_container;
 };
